@@ -23,9 +23,12 @@
 
     <script>
         const pArr = document.querySelectorAll('p');
-
+        
         for(let i = 0; i < pArr.length; i++) {
             pArr[i].children[1].innerText = eval(pArr[i].children[0].innerText.slice(0, -1));
+            visualViewport.onresize = () => {
+                pArr[i].children[1].innerText = eval(pArr[i].children[0].innerText.slice(0, -1));
+            }
         }
     </script>
 </body>
