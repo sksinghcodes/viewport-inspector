@@ -7,29 +7,30 @@
     <title>Viewport Inspector</title>
 </head>
 <body>
-    <p><span>screen.height: </span><span></span></p>
-    <p><span>screen.availHeight: </span><span></span></p>
-    <p><span>window.outerHeight: </span><span></span></p>
-    <p><span>window.innerHeight: </span><span></span></p>
-    <p><span>visualViewport.height: </span><span></span></p>
+    <p><span>screen.height:</span><span></span></p>
+    <p><span>screen.availHeight:</span><span></span></p>
+    <p><span>window.outerHeight:</span><span></span></p>
+    <p><span>window.innerHeight:</span><span></span></p>
+    <p><span>visualViewport.height:</span><span></span></p>
     <br>
-    <p><span>screen.width: </span><span></span></p>
-    <p><span>screen.availWidth: </span><span></span></p>
-    <p><span>window.outerWidth: </span><span></span></p>
-    <p><span>window.innerWidth: </span><span></span></p>
-    <p><span>visualViewport.width: </span><span></span></p>
+    <p><span>screen.width:</span><span></span></p>
+    <p><span>screen.availWidth:</span><span></span></p>
+    <p><span>window.outerWidth:</span><span></span></p>
+    <p><span>window.innerWidth:</span><span></span></p>
+    <p><span>visualViewport.width:</span><span></span></p>
 
     
 
     <script>
         const pArr = document.querySelectorAll('p');
-        
-        for(let i = 0; i < pArr.length; i++) {
-            pArr[i].children[1].innerText = eval(pArr[i].children[0].innerText.slice(0, -1));
-            visualViewport.onresize = () => {
+        const showStat = () => {
+            for(let i = 0; i < pArr.length; i++) {
                 pArr[i].children[1].innerText = eval(pArr[i].children[0].innerText.slice(0, -1));
             }
         }
+        
+        showStat();
+        visualViewport.onresize = () => showStat();
     </script>
 </body>
 </html>
